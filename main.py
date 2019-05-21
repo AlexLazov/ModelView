@@ -15,32 +15,11 @@ import vbo
 #     layout (location = 1) in vec2 aTexCoord;
 # out vec2 TexCoord;
 def build_shader():
-    s155 = """
-    //#version 330 core
-    #version 410 compatibility
-    layout (location = 0) in vec3 Position;
-    layout (location = 1) in vec2 vertexUV;
-    
-    out vec2 UV;
-    
-    void main(){
-       //gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
-       //gl_Position = MVP*vec4(Position.x, Position.y, Position.z, 1.0);
-       //gl_Position.xyz = vertexPos;
-       //gl_Position.w = 1.0;
-       
-       gl_Position = gl_ModelViewProjectionMatrix * vec4(Position.x, Position.y, Position.z, 1.0);
-       UV = vertexUV;
-       
-       }
-    """
-    
     s1 = """
     //#version 330 core
     #version 410 compatibility
     layout (location = 0) in vec3 Position;
     layout (location = 1) in vec2 vertexUV;
-    layout(location = 2) in vec3 VertexNormal;
     
     out vec2 UV;
     
@@ -51,7 +30,6 @@ def build_shader():
        //gl_Position.w = 1.0;
        
        gl_Position = gl_ModelViewProjectionMatrix * vec4(Position.x, Position.y, Position.z, 1.0);
-       gl_Normal = gl_ModelViewProjectionMatrix * vec4(VertexNormal.x, VertexNormal.y, VertexNormal.z, 1.0);
        UV = vertexUV;
        
        }
